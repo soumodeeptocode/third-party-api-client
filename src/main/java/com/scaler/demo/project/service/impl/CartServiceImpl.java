@@ -75,14 +75,4 @@ public class CartServiceImpl implements ICartService {
         CartDTO response = restTemplate.postForObject(GET_CART_API_ENDPOINT, cart, CartDTO.class);
         return response;
     }
-    /**Complete the api calls for Cart Service
-     * GET
-     * GET single
-     * POST
-     * PUT
-     * DELETE
-     * */
-
-
-
 }
