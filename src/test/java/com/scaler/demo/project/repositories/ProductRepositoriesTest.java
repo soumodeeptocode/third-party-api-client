@@ -1,6 +1,7 @@
 package com.scaler.demo.project.repositories;
 
 import com.scaler.demo.project.dto.ProductMap;
+import com.scaler.demo.project.model.Category;
 import com.scaler.demo.project.model.Product;
 import com.scaler.demo.project.model.projections.ProductWithIdAndName;
 import com.scaler.demo.project.repository.IProductRepository;
@@ -27,18 +28,26 @@ public class ProductRepositoriesTest {
 
     @Test
     void testQueries() throws Exception {
-        //Query 1//
-        List<ProductWithIdAndName> productList = iProductRepository.getProductByIdAndName();
-        for(ProductWithIdAndName product : productList){
-            log.info("Product name : {}",product.getName());
+
+        Optional<Product> productOptional = iProductRepository.findById(152L);
+        Product product = productOptional.get();
+        if(true){
+            Category category = product.getCategory();
+            System.out.println(category.getName());
         }
 
-        //Query 2//
-        List<Map<String, Object>> productMap = iProductRepository.getAllProducts();
-        List<ProductMap> products = JsonUtil.convertListOfMapToListDTO(productMap, ProductMap.class);
-        System.out.println(products);
+//        //Query 1//
+//        List<ProductWithIdAndName> productList = iProductRepository.getProductByIdAndName();
+//        for(ProductWithIdAndName product : productList){
+//            log.info("Product name : {}",product.getName());
+//        }
 
-        ProductMap productMap1 = new ProductMap();
+        //Query 2//
+//        List<Map<String, Object>> productMap = iProductRepository.getAllProducts();
+//        List<ProductMap> products = JsonUtil.convertListOfMapToListDTO(productMap, ProductMap.class);
+//        System.out.println(products);
+//
+//        ProductMap productMap1 = new ProductMap();
         /**
          * <name, 1>
          * <description, iphone13>

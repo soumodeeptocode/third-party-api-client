@@ -13,7 +13,7 @@ import java.util.Date;
 @MappedSuperclass
 public class BaseModel {
     @jakarta.persistence.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
     private Date createdAt;
     private Date lastUpdatedAt;

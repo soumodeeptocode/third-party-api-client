@@ -1,8 +1,6 @@
 package com.scaler.demo.project.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +10,8 @@ import java.util.List;
 @Setter
 @Entity(name = "categories")
 public class Category extends BaseModel {
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category", cascade = CascadeType.REMOVE)
+    private List<Product> products;
     private String name;
     private String description;
 }
